@@ -7,13 +7,5 @@ import {environment} from '../environments/environment';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = `Solid Microblog`;
-
-  constructor() {
-    this.title = this.getTitle();
-  }
-
-  private getTitle(): string {
-    return environment.herokuAppName === 'solid-microblog' ? 'Solid Microblog' : 'Solid Microblog - ' + environment.herokuAppName;
-  }
+  title = environment.herokuAppName;
 }

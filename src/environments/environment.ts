@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   solidOidcIssuer: 'https://solidcommunity.net',
-  herokuAppName: 'Local development'
+  herokuAppName: 'Solid Microblog - Localhost'
 };
 
 /*
