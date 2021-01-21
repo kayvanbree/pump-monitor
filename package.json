@@ -1,13 +1,12 @@
 {
   "scripts": {
     "ng": "ng",
-    "start:dev": "ng serve",
-    "start": "node server.js",
+    "start": "ng serve",
     "build": "ng build",
     "test": "jest",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng run solid-microblog:ngsscbuild:production",
+    "build:prod": "ng run solid-microblog:ngsscbuild:production",
     "postinstall": "node patch.js"
   },
   "name": "solid-microblog",
