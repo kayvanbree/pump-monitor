@@ -1,6 +1,7 @@
 FROM node:alpine AS builder
 WORKDIR /usr/src/app
 COPY package*.json ./
+COPY patch.js ./
 RUN npm install
 COPY . .
 RUN npm run build:prod
