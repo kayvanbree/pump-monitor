@@ -1,0 +1,10 @@
+{
+  "name": "Solid Microblog",
+  "description": "A microblogging platform based on the Solid Framework. Own your own data.",
+  "keywords": [
+    "solid",
+    "microblog"
+  ],
+  "website": "https://solid-microblog.herokuapp.com",
+  "repository": "https://github.com/kayvanbree/solid-microblog"
+}
