@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  solidOidcIssuer: 'https://solidcommunity.net'
+  solidOidcIssuer: 'https://solidcommunity.net',
+  herokuAppName: 'Local development'
 };
 
 /*

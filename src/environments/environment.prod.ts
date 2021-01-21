@@ -17,5 +17,6 @@ import 'angular-server-side-configuration/process';
 
 export const environment = {
   production: true,
-  solidOidcIssuer: process.env.SOLID_OIDC_ISSUER || 'https://solidcommunity.net'
+  solidOidcIssuer: process.env.SOLID_OIDC_ISSUER || 'https://solidcommunity.net',
+  herokuAppName: process.env.HEROKU_APP_NAME || 'Appname Not Set'
 };
