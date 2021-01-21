@@ -8,7 +8,7 @@ import {environment} from '../environments/environment';
 })
 export class AppComponent implements OnInit {
   title = '';
-  
+
   public ngOnInit(): void {
     this.title = environment.herokuAppName;
   }
