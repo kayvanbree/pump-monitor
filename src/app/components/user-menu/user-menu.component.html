@@ -1,0 +1,14 @@
+<span *ngIf="!loggedIn">
+  <button
+    mat-icon-button
+    matTooltip="Log in"
+    aria-label="Log in"
+    (click)="login()"
+  >
+    Log in
+    <mat-icon>person_outline</mat-icon>
+  </button>
+</span>
+<span *ngIf="loggedIn">
+  Username
+</span>
