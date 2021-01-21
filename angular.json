@@ -116,6 +116,19 @@
               "devServerTarget": "solid-microblog:serve:production"
             }
           }
+        },
+        "ngsscbuild": {
+          "builder": "angular-server-side-configuration:ngsscbuild",
+          "options": {
+            "additionalEnvironmentVariables": [],
+            "browserTarget": "solid-microblog:build",
+            "ngsscEnvironmentFile": "src/environments/environment.prod.ts"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "solid-microblog:build:production"
+            }
+          }
         }
       }
     }
