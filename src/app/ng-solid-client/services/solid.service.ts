@@ -8,8 +8,6 @@ import {environment} from '../../../environments/environment';
 export class SolidService {
   private session;
 
-
-
   constructor() {
     this.session = new Session();
   }
@@ -26,8 +24,11 @@ export class SolidService {
     }
   }
 
-  public logout(): void {
-    this.session.logout();
+  public async logout(): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      this.session.logout();
+      resolve(true);
+    });
   }
 
   /**

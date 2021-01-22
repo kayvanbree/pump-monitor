@@ -10,5 +10,11 @@
   </button>
 </span>
 <span *ngIf="(authentication | async).isLoggedIn">
-  {{(authentication | async).webId}}
+  <button mat-button [matMenuTriggerFor]="menu">
+    {{(authentication | async).webId}}
+  </button>
 </span>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="logout()">Logout</button>
+</mat-menu>

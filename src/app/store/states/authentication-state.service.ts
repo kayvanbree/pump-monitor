@@ -24,7 +24,13 @@ export class AuthenticationState {
 
   @Action(Logout)
   public logout(ctx: StateContext<AuthenticationStateModel>, action: Logout): void {
-    this.solid.logout();
+    this.solid.logout().then(() => {
+      ctx.patchState({
+        sessionId: '',
+        isLoggedIn: false,
+        webId: '',
+      });
+    });
   }
 
   @Action(HandleRedirect)

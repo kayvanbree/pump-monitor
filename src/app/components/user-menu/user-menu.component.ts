@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SolidService} from '../../ng-solid-client/services/solid.service';
 import {Select, Store} from '@ngxs/store';
-import {Login} from '../../store/actions/authentication.actions';
+import {Login, Logout} from '../../store/actions/authentication.actions';
 import {AuthenticationState} from '../../store/states/authentication-state.service';
 import {AuthenticationStateModel} from '../../store/models/authentication-state.model';
 import {Observable} from 'rxjs';
@@ -25,5 +25,9 @@ export class UserMenuComponent implements OnInit {
 
   public login(): void {
     this.store.dispatch(new Login());
+  }
+
+  public logout(): void {
+    this.store.dispatch(new Logout());
   }
 }
