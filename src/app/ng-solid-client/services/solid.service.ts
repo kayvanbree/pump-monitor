@@ -8,6 +8,8 @@ import {environment} from '../../../environments/environment';
 export class SolidService {
   private session;
 
+
+
   constructor() {
     this.session = new Session();
   }
@@ -24,15 +26,18 @@ export class SolidService {
     }
   }
 
+  public logout(): void {
+    this.session.logout();
+  }
+
   /**
    * Handle the redirect after logging in
    */
   public async handleRedirect(): Promise<any> {
-    await this.session.handleIncomingRedirect(window.location.href);
-
-    if (this.session.info.isLoggedIn) {
-      console.log(`Logged in with ID: ${this.session.info.webId}`);
-    }
+    return new Promise(async (resolve, reject) => {
+      await this.session.handleIncomingRedirect(window.location.href);
+      resolve(this.session.info);
+    });
   }
 
   /**

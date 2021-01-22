@@ -14,14 +14,11 @@ export class SolidAuthenticationGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return new Promise((resolve, reject) => {
-      this.solid.handleRedirect().then(() => {
-        if (this.solid.isLoggedIn()) {
-          resolve(true);
-        } else {
-          this.solid.login();
-          resolve(false);
-        }
-      });
+      if (this.solid.isLoggedIn()) {
+        resolve(true);
+      } else {
+        resolve(false);
+      }
     });
   }
 }

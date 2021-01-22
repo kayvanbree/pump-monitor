@@ -8,6 +8,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from './modules/material.module';
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
+import {StoreModule} from './store/store.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { UserMenuComponent } from './components/user-menu/user-menu.component';
     AppRouterModule,
     BrowserAnimationsModule,
     MaterialModule,
+    StoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {environment} from '../environments/environment';
-import {SolidService} from './ng-solid-client/services/solid.service';
+import {HandleRedirect} from './store/actions/authentication.actions';
+import {Store} from '@ngxs/store';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,10 @@ import {SolidService} from './ng-solid-client/services/solid.service';
 })
 export class AppComponent implements OnInit {
   public title = environment.herokuAppName;
+
+  constructor(private store: Store) {}
+
+  public ngOnInit(): void {
+    this.store.dispatch(new HandleRedirect());
+  }
 }
