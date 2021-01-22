@@ -14,3 +14,12 @@ export class SetAuthenticationInfo {
   static readonly type = '[Auth] SetAuthenticationInfo';
   constructor(public info) {}
 }
+
+export class GetProfile {
+  static readonly type = '[Auth] GetProfile';
+}
+
+export class SetProfile {
+  static readonly type = '[Auth] SetProfile';
+  constructor(public profile) {}
+}

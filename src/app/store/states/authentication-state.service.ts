@@ -2,7 +2,7 @@ import {Action, State, StateContext} from '@ngxs/store';
 import {Injectable} from '@angular/core';
 import {AuthenticationStateModel} from '../models/authentication-state.model';
 import {SolidService} from '../../ng-solid-client/services/solid.service';
-import {HandleRedirect, Login, Logout, SetAuthenticationInfo} from '../actions/authentication.actions';
+import {GetProfile, HandleRedirect, Login, Logout, SetAuthenticationInfo, SetProfile} from '../actions/authentication.actions';
 import {patch} from '@ngxs/store/operators';
 
 @State<AuthenticationStateModel>({
@@ -11,6 +11,7 @@ import {patch} from '@ngxs/store/operators';
     sessionId: '',
     isLoggedIn: false,
     webId: '',
+    profile: null,
   },
 })
 @Injectable()
@@ -46,6 +47,23 @@ export class AuthenticationState {
       sessionId: action.info.sessionId,
       isLoggedIn: action.info.isLoggedIn,
       webId: action.info.webId,
+    });
+    if (action.info.isLoggedIn) {
+      ctx.dispatch(new GetProfile());
+    }
+  }
+
+  @Action(GetProfile)
+  public getProfile(ctx: StateContext<AuthenticationStateModel>, action: GetProfile): void {
+    this.solid.getProfile().then(value => {
+      ctx.dispatch(new SetProfile(value));
+    });
+  }
+
+  @Action(SetProfile)
+  public setProfile(ctx: StateContext<AuthenticationStateModel>, action: SetProfile): void {
+    ctx.patchState({
+      profile: action.profile,
     });
   }
 }

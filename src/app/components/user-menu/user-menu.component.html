@@ -11,7 +11,7 @@
 </span>
 <span *ngIf="(authentication | async).isLoggedIn">
   <button mat-button [matMenuTriggerFor]="menu">
-    {{(authentication | async).webId}}
+    {{(authentication | async).profile?.name}}
   </button>
 </span>
 
