@@ -6,7 +6,7 @@ import {HandleRedirect, Login, Logout, SetAuthenticationInfo} from '../actions/a
 import {patch} from '@ngxs/store/operators';
 
 @State<AuthenticationStateModel>({
-  name: 'user',
+  name: 'authentication',
   defaults: {
     sessionId: '',
     isLoggedIn: false,
@@ -33,6 +33,7 @@ export class AuthenticationState {
       ctx.dispatch(new SetAuthenticationInfo(value));
     });
   }
+
   @Action(SetAuthenticationInfo)
   public setAuthenticationInfo(ctx: StateContext<AuthenticationStateModel>, action: SetAuthenticationInfo): void {
     ctx.patchState({

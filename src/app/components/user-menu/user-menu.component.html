@@ -1,4 +1,4 @@
-<span *ngIf="!loggedIn">
+<span *ngIf="!(authentication | async).isLoggedIn">
   <button
     mat-icon-button
     matTooltip="Log in"
@@ -9,6 +9,6 @@
     <mat-icon>person_outline</mat-icon>
   </button>
 </span>
-<span *ngIf="loggedIn">
-  Username
+<span *ngIf="(authentication | async).isLoggedIn">
+  {{(authentication | async).webId}}
 </span>
