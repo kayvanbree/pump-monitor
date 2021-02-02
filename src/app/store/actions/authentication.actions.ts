@@ -1,3 +1,5 @@
+import {OktaState} from '../entities/okta-state';
+
 export class Login {
   static readonly type = '[Auth] Login';
 }
@@ -12,7 +14,7 @@ export class HandleRedirect {
 
 export class SetAuthenticationInfo {
   static readonly type = '[Auth] SetAuthenticationInfo';
-  constructor(public info) {}
+  constructor(public authState: OktaState) {}
 }
 
 export class GetProfile {

@@ -1,6 +1,6 @@
 import {Action, State, StateContext} from '@ngxs/store';
 import {Injectable} from '@angular/core';
-import {AuthenticationStateModel} from '../models/authentication-state.model';
+import {OktaState} from '../entities/okta-state';
 import {
   GetProfile,
   HandleRedirect,
@@ -11,25 +11,26 @@ import {
   SetProfile
 } from '../actions/authentication.actions';
 import {OktaAuthService} from '@okta/okta-angular';
+import {AuthenticationStateModel} from '../models/authentication-state.model';
 
 @State<AuthenticationStateModel>({
   name: 'authentication',
   defaults: {
-    isAuthenticated: false,
+    oktaState: {
+      isAuthenticated: false,
+    },
   },
 })
 @Injectable()
 export class AuthenticationState {
-  constructor(private oktaAuth: OktaAuthService) {}
+  constructor(private oktaAuth: OktaAuthService) {
+  }
 
   @Action(InitializeAuthentication)
   public initializeAuthentication(ctx: StateContext<AuthenticationStateModel>, action: InitializeAuthentication): void {
-    this.oktaAuth.$authenticationState.subscribe((isAuthenticated: boolean)  => {
-        ctx.patchState({
-          isAuthenticated,
-        });
-      }
-    );
+    this.oktaAuth.authStateManager.subscribe((authState: OktaState) => {
+        ctx.dispatch(new SetAuthenticationInfo(authState));
+    });
   }
 
   @Action(Login)
@@ -55,14 +56,13 @@ export class AuthenticationState {
 
   @Action(SetAuthenticationInfo)
   public setAuthenticationInfo(ctx: StateContext<AuthenticationStateModel>, action: SetAuthenticationInfo): void {
-    // ctx.patchState({
-    //   sessionId: action.info.sessionId,
-    //   isLoggedIn: action.info.isLoggedIn,
-    //   webId: action.info.webId,
-    // });
-    // if (action.info.isLoggedIn) {
-    //   ctx.dispatch(new GetProfile());
-    // }
+    ctx.patchState({
+      isPending: action.authState.isPending,
+      isAuthenticated: action.authState.isAuthenticated,
+      accessToken: action.authState.accessToken ? action.authState.accessToken.value : null,
+      idToken: action.authState.idToken ? action.authState.idToken.value : null,
+      error: action.authState.error ? action.authState.error.value : null,
+    });
   }
 
   @Action(GetProfile)
