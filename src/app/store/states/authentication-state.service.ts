@@ -16,9 +16,8 @@ import {AuthenticationStateModel} from '../models/authentication-state.model';
 @State<AuthenticationStateModel>({
   name: 'authentication',
   defaults: {
-    oktaState: {
-      isAuthenticated: false,
-    },
+    isAuthenticated: false,
+    isPending: false,
   },
 })
 @Injectable()
