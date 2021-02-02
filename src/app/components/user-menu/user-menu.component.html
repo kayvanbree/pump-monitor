@@ -1,4 +1,4 @@
-<span *ngIf="!(authentication | async).isLoggedIn">
+<span *ngIf="!(authentication | async).isAuthenticated">
   <button
     mat-icon-button
     matTooltip="Log in"
@@ -9,9 +9,10 @@
     <mat-icon>person_outline</mat-icon>
   </button>
 </span>
-<span *ngIf="(authentication | async).isLoggedIn">
+<span *ngIf="(authentication | async).isAuthenticated">
   <button mat-button [matMenuTriggerFor]="menu">
-    {{(authentication | async).profile?.name}}
+<!--    {{(authentication | async).profile?.name}}-->
+    Henk
   </button>
 </span>
 

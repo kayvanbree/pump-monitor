@@ -1,4 +1,7 @@
 {
+  "name": "pump-monitor",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -6,12 +9,8 @@
     "test": "jest",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:prod": "ng run solid-microblog:ngsscbuild:production",
-    "postinstall": "node patch.js"
+    "build:prod": "ng run pump-monitor:ngsscbuild:production"
   },
-  "name": "solid-microblog",
-  "version": "0.0.0",
-  "private": true,
   "dependencies": {
     "@angular/animations": "~11.0.9",
     "@angular/cdk": "^11.1.0",
@@ -23,16 +22,12 @@
     "@angular/platform-browser": "~11.0.9",
     "@angular/platform-browser-dynamic": "~11.0.9",
     "@angular/router": "~11.0.9",
-    "@inrupt/solid-client": "^1.3.0",
-    "@inrupt/solid-client-authn-browser": "^1.4.2",
-    "@inrupt/vocab-common-rdf": "^0.7.2",
     "@ngxs/devtools-plugin": "^3.7.1",
     "@ngxs/store": "^3.7.1",
+    "@okta/okta-angular": "^3.0.1",
     "angular-server-side-configuration": "^11.0.2",
-    "crypto-browserify": "^3.12.0",
     "express": "^4.17.1",
     "rxjs": "~6.6.0",
-    "stream-browserify": "^3.0.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

@@ -23,3 +23,7 @@ export class SetProfile {
   static readonly type = '[Auth] SetProfile';
   constructor(public profile) {}
 }
+
+export class InitializeAuthentication {
+  static readonly type = '[Auth] InitializeAuthentication';
+}

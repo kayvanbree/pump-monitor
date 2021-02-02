@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SolidService} from '../../ng-solid-client/services/solid.service';
+import {AuthenticationService} from '../../store/services/authentication.service';
 import {Select, Store} from '@ngxs/store';
 import {Login, Logout} from '../../store/actions/authentication.actions';
 import {AuthenticationState} from '../../store/states/authentication-state.service';
@@ -11,17 +11,10 @@ import {Observable} from 'rxjs';
   templateUrl: './user-menu.component.html',
   styleUrls: ['./user-menu.component.scss']
 })
-export class UserMenuComponent implements OnInit {
-  public loggedIn: boolean;
-
+export class UserMenuComponent {
   @Select(AuthenticationState) authentication: Observable<AuthenticationStateModel>;
 
   constructor(private store: Store) {}
-
-  public ngOnInit(): void {
-    // this.loggedIn = this.solid.isLoggedIn();
-    console.log(this.loggedIn);
-  }
 
   public login(): void {
     this.store.dispatch(new Login());

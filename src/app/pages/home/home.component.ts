@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import {Store} from '@ngxs/store';
+import {Login} from '../../store/actions/authentication.actions';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  constructor() { }
+  constructor(private store: Store) { }
 
-  ngOnInit(): void {
+  public login(): void {
+    this.store.dispatch(new Login());
   }
-
 }

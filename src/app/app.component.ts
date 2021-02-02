@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {environment} from '../environments/environment';
-import {HandleRedirect} from './store/actions/authentication.actions';
+import {InitializeAuthentication} from './store/actions/authentication.actions';
 import {Store} from '@ngxs/store';
 
 @Component({
@@ -14,6 +14,6 @@ export class AppComponent implements OnInit {
   constructor(private store: Store) {}
 
   public ngOnInit(): void {
-    this.store.dispatch(new HandleRedirect());
+    this.store.dispatch(new InitializeAuthentication());
   }
 }

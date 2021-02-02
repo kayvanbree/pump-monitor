@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "solid-microblog": {
+    "pump-monitor": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/solid-microblog",
+            "outputPath": "dist/pump-monitor",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "solid-microblog:build"
+            "browserTarget": "pump-monitor:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "solid-microblog:build:production"
+              "browserTarget": "pump-monitor:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "solid-microblog:build"
+            "browserTarget": "pump-monitor:build"
           }
         },
         "test": {
@@ -114,11 +114,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "solid-microblog:serve"
+            "devServerTarget": "pump-monitor:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "solid-microblog:serve:production"
+              "devServerTarget": "pump-monitor:serve:production"
             }
           }
         },
@@ -126,17 +126,17 @@
           "builder": "angular-server-side-configuration:ngsscbuild",
           "options": {
             "additionalEnvironmentVariables": [],
-            "browserTarget": "solid-microblog:build",
+            "browserTarget": "pump-monitor:build",
             "ngsscEnvironmentFile": "src/environments/environment.prod.ts"
           },
           "configurations": {
             "production": {
-              "browserTarget": "solid-microblog:build:production"
+              "browserTarget": "pump-monitor:build:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "solid-microblog"
+  "defaultProject": "pump-monitor"
 }

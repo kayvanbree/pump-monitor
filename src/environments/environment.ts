@@ -5,7 +5,10 @@
 export const environment = {
   production: false,
   solidOidcIssuer: 'https://solidcommunity.net',
-  herokuAppName: 'Solid Microblog - Localhost'
+  herokuAppName: 'Solid Microblog - Localhost',
+  oktaBaseUrl: 'https://dev-1941070.okta.com',
+  oktaClientId: '0oa4x30y96X48XHNU5d6',
+  oktaRedirectUri: 'http://localhost:4200',
 };
 
 /*

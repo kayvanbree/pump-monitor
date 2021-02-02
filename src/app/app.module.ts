@@ -9,13 +9,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from './modules/material.module';
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
 import {StoreModule} from './store/store.module';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import {OktaModule} from './modules/okta.module';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NotFoundComponent,
-    UserMenuComponent
+    UserMenuComponent,
+    DashboardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +28,7 @@ import {StoreModule} from './store/store.module';
     BrowserAnimationsModule,
     MaterialModule,
     StoreModule,
+    OktaModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
