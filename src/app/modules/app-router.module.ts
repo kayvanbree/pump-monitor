@@ -8,7 +8,7 @@ import {OktaAuthGuard, OktaCallbackComponent, OktaLoginRedirectComponent} from '
 const routes: Routes = [
   {path: 'callback', component: OktaCallbackComponent},
   {path: 'login', component: OktaLoginRedirectComponent},
-  {path: 'home', component: HomeComponent, canActivate: [OktaAuthGuard]},
+  {path: 'home', component: HomeComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent, canActivate: [OktaAuthGuard]},
   {path: '**', component: NotFoundComponent},

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from '../../store/services/authentication.service';
 import {Select, Store} from '@ngxs/store';
 import {Login, Logout} from '../../store/actions/authentication.actions';
-import {AuthenticationState} from '../../store/states/authentication-state.service';
+import {AuthenticationState} from '../../store/states/authentication-state';
 import {AuthenticationStateModel} from '../../store/models/authentication-state.model';
 import {Observable} from 'rxjs';
 

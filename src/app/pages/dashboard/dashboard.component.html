@@ -1,1 +1,7 @@
-<p>dashboard works!</p>
+<h1>Dashboard</h1>
+
+<p>This should list some tickers</p>
+
+<ul>
+  <li *ngFor="let ticker of (marketState | async)?.tickers">{{ticker}}</li>
+</ul>

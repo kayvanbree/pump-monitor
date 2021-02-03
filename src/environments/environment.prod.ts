@@ -20,5 +20,6 @@ export const environment = {
   herokuAppName: NG_ENV.HEROKU_APP_NAME || 'Pump Monitor - Localhost',
   oktaBaseUrl: NG_ENV.OKTA_BASE_URL || 'https://dev-1941070.okta.com',
   oktaClientId: NG_ENV.OKTA_CLIENT_ID || '0oa4x30y96X48XHNU5d6',
-  oktaRedirectUri: NG_ENV.OKTA_REDIRECT_URI || 'https://pump-monitor-staging.herokuapps.com/callback',
+  oktaRedirectUri: NG_ENV.OKTA_REDIRECT_URI || 'https://pump-monitor-staging.herokuapp.com/callback',
+  apiBaseUrl: NG_ENV.API_BASE_URL || 'https://pump-monitor-staging-api.herokuapp.com',
 };
