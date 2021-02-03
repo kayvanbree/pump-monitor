@@ -12,7 +12,8 @@ import {StoreModule} from './store/store.module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import {OktaModule} from './modules/okta.module';
 import { LoginComponent } from './pages/login/login.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {OktaHttpInterceptor} from './interceptors/okta-http-interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,12 @@ import {HttpClientModule} from '@angular/common/http';
     OktaModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {  provide: HTTP_INTERCEPTORS,
+      useClass: OktaHttpInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

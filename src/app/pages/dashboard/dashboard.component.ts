@@ -3,6 +3,7 @@ import {Select, Store} from '@ngxs/store';
 import {MarketStateModel} from '../../store/models/market-state.model';
 import {Observable} from 'rxjs';
 import {GetTickers} from '../../store/actions/market.actions';
+import {AuthenticationStateModel} from '../../store/models/authentication-state.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,6 +17,10 @@ export class DashboardComponent implements OnInit {
   constructor(private store: Store) { }
 
   ngOnInit(): void {
-    this.store.dispatch(new GetTickers());
+    this.store.select(state => state.authentication).subscribe((state: AuthenticationStateModel) => {
+      if (state.accessToken) {
+        this.store.dispatch(new GetTickers());
+      }
+    });
   }
 }
