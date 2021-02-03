@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   herokuAppName: 'Pump Monitor - Localhost',
-  oktaBaseUrl: 'https://dev-1941070.okta.com',
-  oktaClientId: '0oa4x30y96X48XHNU5d6',
+  oktaBaseUrl: 'https://dev-1650732.okta.com',
+  oktaClientId: '0oa4zg3xxFFfwZ5km5d6',
   oktaRedirectUri: 'http://localhost:4200',
   apiBaseUrl: 'http://localhost:5000',
 };
