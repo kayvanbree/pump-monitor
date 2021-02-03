@@ -42,7 +42,7 @@ export class AuthenticationState {
   @Action(Logout)
   public logout(ctx: StateContext<AuthenticationStateModel>, action: Logout): void {
     this.oktaAuth.signOut({
-      postLogoutRedirectUri: `http://${location.host}`,
+      postLogoutRedirectUri: `${window.location.protocol}//${window.location.host}`,
     });
   }
 
