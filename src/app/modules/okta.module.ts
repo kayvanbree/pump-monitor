@@ -9,7 +9,8 @@ import {environment} from '../../environments/environment';
 const oktaConfig = {
   issuer: environment.oktaOauth2Issuer,
   clientId: environment.oktaOauth2ClientIdSPA,
-  redirectUri: window.location.origin + '/callback'
+  redirectUri: window.location.origin + '/callback',
+  scope: 'openid profile email',
 };
 
 @NgModule({
