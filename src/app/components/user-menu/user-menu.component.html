@@ -1,18 +1,18 @@
 <span *ngIf="!(authentication | async).isAuthenticated">
   <button
-    mat-icon-button
+    mat-button
     matTooltip="Log in"
     aria-label="Log in"
     (click)="login()"
   >
-    Log in
     <mat-icon>person_outline</mat-icon>
+    Log in
   </button>
 </span>
 <span *ngIf="(authentication | async).isAuthenticated">
   <button mat-button [matMenuTriggerFor]="menu">
-<!--    {{(authentication | async).profile?.name}}-->
-    Henk
+    <mat-icon>person_outline</mat-icon>
+    {{(authentication | async).profile?.name}}
   </button>
 </span>
 

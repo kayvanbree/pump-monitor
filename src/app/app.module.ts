@@ -12,6 +12,7 @@ import {StoreModule} from './store/store.module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import {OktaModule} from './modules/okta.module';
 import { LoginComponent } from './pages/login/login.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { LoginComponent } from './pages/login/login.component';
     MaterialModule,
     StoreModule,
     OktaModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

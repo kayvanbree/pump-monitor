@@ -2,10 +2,11 @@ import {Action, State, StateContext} from '@ngxs/store';
 import {Injectable} from '@angular/core';
 import {OktaState} from '../entities/okta-state';
 import {
+  GetProfile,
   InitializeAuthentication,
   Login,
   Logout,
-  SetAuthenticationInfo,
+  SetAuthenticationInfo, SetProfile,
 } from '../actions/authentication.actions';
 import {OktaAuthService} from '@okta/okta-angular';
 import {AuthenticationStateModel} from '../models/authentication-state.model';
@@ -15,6 +16,7 @@ import {AuthenticationStateModel} from '../models/authentication-state.model';
   defaults: {
     isAuthenticated: false,
     isPending: false,
+    profile: null,
   },
 })
 @Injectable()
@@ -51,6 +53,21 @@ export class AuthenticationState {
       accessToken: action.authState.accessToken ? action.authState.accessToken.value : null,
       idToken: action.authState.idToken ? action.authState.idToken.value : null,
       error: action.authState.error ? action.authState.error.value : null,
+    });
+    ctx.dispatch(new GetProfile());
+  }
+
+  @Action(GetProfile)
+  public getProfile(ctx: StateContext<AuthenticationStateModel>, action: GetProfile): void {
+    this.oktaAuth.getUser().then(value => {
+      ctx.dispatch(new SetProfile(value));
+    });
+  }
+
+  @Action(SetProfile)
+  public setProfile(ctx: StateContext<AuthenticationStateModel>, action: SetProfile): void {
+    ctx.patchState({
+      profile: action.profile,
     });
   }
 }

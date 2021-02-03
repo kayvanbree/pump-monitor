@@ -1,4 +1,4 @@
-import {OktaState} from '../entities/okta-state';
+import {Profile} from '../entities/profile';
 
 export interface AuthenticationStateModel {
   isPending: boolean;
@@ -6,4 +6,5 @@ export interface AuthenticationStateModel {
   accessToken?: string;
   idToken?: string;
   error?: string;
+  profile?: Profile;
 }
