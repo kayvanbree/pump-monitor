@@ -23,4 +23,8 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
+
+  refreshTickers(): void {
+    this.store.dispatch(new GetTickers());
+  }
 }

@@ -1,4 +1,4 @@
-import {Profile} from '../entities/profile';
+import {UserClaims} from '@okta/okta-auth-js/lib/types';
 
 export interface AuthenticationStateModel {
   isPending: boolean;
@@ -6,5 +6,5 @@ export interface AuthenticationStateModel {
   accessToken?: string;
   idToken?: string;
   error?: string;
-  profile?: Profile;
+  userClaims?: UserClaims;
 }

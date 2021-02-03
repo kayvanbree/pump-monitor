@@ -1,5 +1,5 @@
 import {OktaState} from '../entities/okta-state';
-import {Profile} from '../entities/profile';
+import {UserClaims} from '@okta/okta-auth-js/lib/types';
 
 export class Login {
   static readonly type = '[Auth] Login';
@@ -24,5 +24,5 @@ export class GetProfile {
 
 export class SetProfile {
   static readonly type = '[Auth] SetProfile';
-  constructor(public profile: Profile) {}
+  constructor(public userClaims: UserClaims) {}
 }

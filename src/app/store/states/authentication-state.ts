@@ -10,13 +10,14 @@ import {
 } from '../actions/authentication.actions';
 import {OktaAuthService} from '@okta/okta-angular';
 import {AuthenticationStateModel} from '../models/authentication-state.model';
+import {UserClaims} from '@okta/okta-auth-js/lib/types';
 
 @State<AuthenticationStateModel>({
   name: 'authentication',
   defaults: {
     isAuthenticated: false,
     isPending: false,
-    profile: null,
+    userClaims: null,
   },
 })
 @Injectable()
@@ -41,7 +42,7 @@ export class AuthenticationState {
   @Action(Logout)
   public logout(ctx: StateContext<AuthenticationStateModel>, action: Logout): void {
     this.oktaAuth.signOut({
-      postLogoutRedirectUri: `http://${location.host}/home`,
+      postLogoutRedirectUri: `http://${location.host}`,
     });
   }
 
@@ -59,15 +60,15 @@ export class AuthenticationState {
 
   @Action(GetProfile)
   public getProfile(ctx: StateContext<AuthenticationStateModel>, action: GetProfile): void {
-    this.oktaAuth.getUser().then(value => {
-      ctx.dispatch(new SetProfile(value));
+    this.oktaAuth.getUser().then((userClaims: UserClaims) => {
+      ctx.dispatch(new SetProfile(userClaims));
     });
   }
 
   @Action(SetProfile)
   public setProfile(ctx: StateContext<AuthenticationStateModel>, action: SetProfile): void {
     ctx.patchState({
-      profile: action.profile,
+      userClaims: action.userClaims,
     });
   }
 }

@@ -12,7 +12,7 @@
 <span *ngIf="(authentication | async).isAuthenticated">
   <button mat-button [matMenuTriggerFor]="menu">
     <mat-icon>person_outline</mat-icon>
-    {{(authentication | async).profile?.name}}
+    {{(authentication | async).userClaims?.name}}
   </button>
 </span>
 

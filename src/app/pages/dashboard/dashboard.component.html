@@ -1,6 +1,6 @@
 <h1>Dashboard</h1>
 
-<p>This should list some tickers</p>
+<p>This should list some tickers <button mat-button (click)="refreshTickers()">Refresh tickers</button></p>
 
 <ul>
   <li *ngFor="let ticker of (marketState | async)?.tickers">{{ticker}}</li>
