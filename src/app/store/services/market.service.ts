@@ -9,7 +9,7 @@ import {environment} from '../../../environments/environment';
 export class MarketService {
   constructor(private http: HttpClient) { }
 
-  public getTickers(): Observable<string[]> {
-    return this.http.get<string[]>(`${environment.apiBaseUrl}/tickers`);
+  public getMarketInfo(): Observable<string[]> {
+    return this.http.get<string[]>(`${environment.apiBaseUrl}/system/marketinfo`);
   }
 }

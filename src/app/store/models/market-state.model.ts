@@ -1,3 +1,5 @@
+import {Ticker} from '../entities/ticker';
+
 export interface MarketStateModel {
-  tickers: string[];
+  tickers: Ticker[];
 }

@@ -1,23 +1,23 @@
 import {Injectable} from '@angular/core';
 import {Action, State, StateContext} from '@ngxs/store';
 import {MarketStateModel} from '../models/market-state.model';
-import {GetTickers, SetTickers} from '../actions/market.actions';
+import {GetMarketInfo, SetTickers} from '../actions/market.actions';
 import {MarketService} from '../services/market.service';
 
 @State<MarketStateModel>({
   name: 'market',
   defaults: {
-    tickers: null,
+    tickers: [],
   }
 })
 @Injectable()
 export class MarketState {
   constructor(private marketService: MarketService) {}
 
-  @Action(GetTickers)
-  public getTickers(ctx: StateContext<MarketStateModel>, action: GetTickers): void {
-    this.marketService.getTickers().subscribe((value: string[]) => {
-      ctx.dispatch(new SetTickers(value));
+  @Action(GetMarketInfo)
+  public getTickers(ctx: StateContext<MarketStateModel>, action: GetMarketInfo): void {
+    this.marketService.getMarketInfo().subscribe((value: any) => {
+      ctx.dispatch(new SetTickers(value.data.symbols));
     });
   }
 

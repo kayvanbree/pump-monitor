@@ -3,5 +3,5 @@
 <p>This should list some tickers <button mat-button (click)="refreshTickers()">Refresh tickers</button></p>
 
 <ul>
-  <li *ngFor="let ticker of (marketState | async)?.tickers">{{ticker}}</li>
+  <li *ngFor="let ticker of (marketState | async)?.tickers">{{ticker.name}}</li>
 </ul>
