@@ -7,8 +7,8 @@ import {
 import {environment} from '../../environments/environment';
 
 const oktaConfig = {
-  issuer: `${environment.oktaBaseUrl}/oauth2/default`,
-  clientId: `${environment.oktaClientId}`,
+  issuer: environment.oktaOauth2Issuer,
+  clientId: environment.oktaOauth2ClientIdSPA,
   redirectUri: window.location.origin + '/callback'
 };
 

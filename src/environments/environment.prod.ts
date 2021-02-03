@@ -18,8 +18,7 @@ import { NG_ENV } from 'angular-server-side-configuration/ng-env';
 export const environment = {
   production: true,
   herokuAppName: NG_ENV.HEROKU_APP_NAME || 'Pump Monitor - Test',
-  oktaBaseUrl: NG_ENV.OKTA_BASE_URL || 'https://dev-1650732.okta.com',
-  oktaClientId: NG_ENV.OKTA_CLIENT_ID || '0oa4zg3xxFFfwZ5km5d6',
-  oktaRedirectUri: NG_ENV.OKTA_REDIRECT_URI || 'https://pump-monitor-staging.herokuapp.com/callback',
+  oktaOauth2Issuer: NG_ENV.OKTA_OAUTH2_ISSUER || 'https://dev-1650732.okta.com/oauth2/default',
+  oktaOauth2ClientIdSPA: NG_ENV.OKTA_OAUTH2_CLIENT_ID_SPA || '0oa4zg3xxFFfwZ5km5d6',
   apiBaseUrl: NG_ENV.API_BASE_URL || 'https://pump-monitor-staging-api.herokuapp.com',
 };
