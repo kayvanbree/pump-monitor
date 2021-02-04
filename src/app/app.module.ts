@@ -14,6 +14,7 @@ import {OktaModule} from './modules/okta.module';
 import { LoginComponent } from './pages/login/login.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {OktaHttpInterceptor} from './interceptors/okta-http-interceptor';
+import {AcceptHeaderInterceptor} from './interceptors/accept-header-interceptor';
 
 @NgModule({
   declarations: [
@@ -34,10 +35,14 @@ import {OktaHttpInterceptor} from './interceptors/okta-http-interceptor';
     HttpClientModule,
   ],
   providers: [
-    {  provide: HTTP_INTERCEPTORS,
-      useClass: OktaHttpInterceptor,
-      multi: true
-    }
+    // {  provide: HTTP_INTERCEPTORS,
+    //   useClass: OktaHttpInterceptor,
+    //   multi: true
+    // },
+    // {  provide: HTTP_INTERCEPTORS,
+    //   useClass: AcceptHeaderInterceptor,
+    //   multi: true
+    // }
   ],
   bootstrap: [AppComponent]
 })
