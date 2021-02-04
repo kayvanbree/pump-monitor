@@ -12,13 +12,15 @@ export class OktaHttpInterceptor implements HttpInterceptor {
   constructor(private store: Store) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const state = this.store.selectSnapshot<AuthenticationStateModel>(stateModel => stateModel.authentication);
-    const token = state.accessToken;
-    req = req.clone({
-      setHeaders: {
-        Authorization: `Bearer ${token}`
-      }
-    });
+    if (req.method !== 'OPTIONS') {
+      const state = this.store.selectSnapshot<AuthenticationStateModel>(stateModel => stateModel.authentication);
+      const token = state.accessToken;
+      req = req.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+    }
 
     return next.handle(req);
   }
